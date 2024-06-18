@@ -89,7 +89,7 @@ export default function Page() {
 
           <Avatar className="size-28">
             <AvatarImage alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} />
-            <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
+            {/* <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback> */}
           </Avatar>
         </div>
         <Section>
@@ -191,7 +191,7 @@ export default function Page() {
         </Section>
       </section>
 
-      <CommandMenu
+      {/* <CommandMenu
         links={[
           {
             url: RESUME_DATA.personalWebsiteUrl,
@@ -202,7 +202,7 @@ export default function Page() {
             title: socialMediaLink.name,
           })),
         ]}
-      />
+      /> */}
     </main>
   );
 }
