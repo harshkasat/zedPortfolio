@@ -1,36 +1,17 @@
-import {
-  AmbitLogo,
-  BarepapersLogo,
-  BimLogo,
-  CDGOLogo,
-  ClevertechLogo,
-  ConsultlyLogo,
-  EvercastLogo,
-  Howdy,
-  JarockiMeLogo,
-  JojoMobileLogo,
-  Minimal,
-  MobileVikingsLogo,
-  MonitoLogo,
-  NSNLogo,
-  ParabolLogo,
-  TastyCloudLogo,
-  YearProgressLogo,
-} from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { title } from "process";
 
 export const RESUME_DATA = {
   name: "Harsh Kasat",
   location: "Surat - Gujarat, India",
   locationLink: "https://www.google.com/maps/place/Surat",
   about:
-    "Django Dev, Machine Learning Intern, Partime Freelancer, Gen Ai Dev",
+    "Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer",
   summary:
     "Software engineer specializing in crafting cutting-edge generative AI solutions. Proficient in guiding products from concept to completion, adept in team leadership. Experienced in AI, ML, and DL technologies, as well as web development and cloud computing",
   avatarUrl: "./harsh.jpg",
   contact: {
     email: "harshkasat01gmail.com",
-    tel: "+91 8154007771",
     social: [
       {
         name: "GitHub",
@@ -84,135 +65,156 @@ export const RESUME_DATA = {
       badges: ["Remote"],
       title: "Software Engineer",
       start: "March 2023",
-      end: "January 2024",
+      end: "June 2024",
       description:"Implemented real-time car and people counting, and car number plate detection using OpenCV and deep learning. Developed scalable invoice-to-JSON conversion with large language models, created generative fills with Stable Diffusion and ControlNet, and architected microservices for production LLM models, optimizing performance to handle millions of requests."
 
     },
   ],
   skills: [
     "AI/ML/DL/NLP: Pytorch, Transformers, PEFT, Bitsandbytes, Diffusers, HuggingFace Ecosystem, Agents, Replicate" ,
-    "Python Libraries: NLTK, FastAPI, Flask, Django, OpenCV, BeautifulSoup, Selenium, Pandas, Langchain, Llamaindex ",
+    "Python Libraries: NLTK, FastAPI, Flask, Django, OpenCV, BeautifulSoup, Selenium, Pandas, Langchain, Llamaindex" ,
     "Web Framework: React.js, Next.js, Django, Bootstrap, Tailwind",
     "Cloud: AWS, Azure Machine Learning, AWS Sagemaker, Docker, Learning Terraform",
     "Database: PostgreSQL, Firebase, Redis, MySQL, Supabase, Pinecone, FAISS, Qdrant, ChromaDb",
-    "Languages: JavaScript, TypeScript, Python, C/C++, SQL, Java",
+    "Languages: JavaScript, TypeScript, Python, C/C++, SQL, Java, ELK, Kibana, ElasticSearch",
   ],
   projects: [
     {
       title: "InscribeAI",
       techStack: [
         "Full Stack Developer",
-        "TypeScript",
+        "JS",
         "React",
-        "Node.js",
-        "GraphQL",
+        "Redis",
+        "Senty",
+        "Docker",
+        "FastApi"
       ],
       description:
-        "The Agile meeting co-pilot that delivers better meetings with less effort",
+        "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
       link: {
         label: "github.com",
-        href: "https://parabol.co/",
+        href: "https://inscribe-ai.vercel.app/",
       },
     },
     {
       title: "Eudaimonia",
       techStack: [
-        "Lead Frontend Developer",
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
+        "Fastapi",
+        "Notion",
+        "Slack",
+        "Facebook API",
+        "Docker",
+        "LLM",
       ],
       description:
-        "Creative collaboration platform that combines video conferencing and HD media streaming",
+        "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API.",
       link: {
-        label: "LessonPlan",
-        href: "https://www.evercast.us/",
+        label: "github.com",
+        href: "https://github.com/harshkasat/Eudaimonia",
       },
     },
     {
       title: "Trininetra",
       techStack: [
         "Side Project",
-        "TypeScript",
-        "Next.js",
+        "JScript",
+        "React",
         "Vite",
-        "GraphQL",
-        "WebRTC",
+        "CV",
+        "Async",
+        ""
       ],
-      description: "A platform to build and grow your online business",
+      description: "Empowering the visually impaired with advanced camera-based object detection, distance estimation, and facial recognition for greater independence.",
       link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
+        label: "github.com",
+        href: "https://github.com/harshkasat/Trininetra",
       },
     },
     {
       title: "Diagnose",
-      techStack: ["Side Project", "TypeScript", "Next.js", "Browser Extension"],
+      techStack: ["Side Project", "Django", "Machine learning", "CV"],
       description:
-        "Browser extension that records everything happening in a web application",
+        "A Django-based web application for accurate brain tumor, chest X-ray, and melanoma cancer detection using pre-trained machine learning models.",
       link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
+        label: "github.com",
+        href: "https://github.com/harshkasat/Diagnose",
       },
     },
     {
-      title: "Facial_emotions",
-      techStack: ["Side Project", "Next.js", "MDX"],
+      title: "Profile-Cli",
+      techStack: ["CLI", "Go", "Charm"],
       description:
-        "Personal website and blog. Built with Next.js and Notion API",
+        "A Go-based CLI tool using the Charm library's tea model for interactive browsing, URL copying, and more.",
       link: {
         label: "github.com",
-        href: "https://jarocki.me/",
+        href: "https://github.com/harshkasat/ProfileCli-Go",
       },
     },
     {
       title: "ANPR",
-      techStack: ["Side Project", "Next.js", "Puppeteer"],
+      techStack: ["Side Project", "Python", "TensorFlow", "Kaggle"],
       description:
-        "Minimalist calendars, habit trackers, and planners generator",
+        "ANPR: Advanced technology for swift vehicle identification and tracking, enhancing law enforcement, traffic management, and public safety.",
       link: {
-        label: "useminimal.com",
-        href: "https://useminimal.com/",
+        label: "github.com",
+        href: "https://github.com/harshkasat/ANPR",
       },
     },
     {
-      title: "SignSleuth",
-      techStack: ["Side Project", "Next.js", "Puppeteer"],
+      title: "Occultdiy",
+      techStack: ["Company Project", "HTML", "Celery", "Django", "Supabase", "GitHubAction", "Docker"]  ,
       description:
-        "Generates beautiful wallpapers using random shapes and gradients",
+        "Numerology, or the science of numbers, is all about numbers, and their vibrational bent aids the numerologists to predict the future of the person.",
       link: {
-        label: "barepapers.com",
-        href: "https://barepapers.com/",
+        label: "website",
+        href: "https://www.occultdiy.com/",
       },
     },
     {
-      title: "Gesture-Navigator",
-      techStack: ["Side Project", "TypeScript", "Next.js"],
-      description: "Tracks current year progress and displays a countdown",
+      title: "Hand Gesture Game Controller",
+      techStack: ["Side Project", "Python", "OpenCV", "MediaPipe", "DirectInput (pywin32)"]      ,
+      description: "Hand gesture-based game controller using OpenCV, MediaPipe, and keyboard emulation in Python.",
       link: {
-        label: "getyearprogress.com",
-        href: "https://getyearprogress.com/",
+        label: "github.com",
+        href: "https://github.com/harshkasat/hand-gesture-game-controller",
       },
     },
     {
-      title: "NotionWhizBot",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application for leading virtual mobile operator in Poland",
+      title: "ASCII Video Converter",
+      techStack: ["Side Project", "Cursor", "Python", "ascii-magic", "OpenCV (cv2)"],
+      description: "This Python project converts video frames into ASCII art and displays them in the terminal using ascii-magic and cv2.",
       link: {
-        label: "mobilevikings.pl",
-        href: "https://mobilevikings.pl/",
+        label: "github.com",
+        href: "https://github.com/harshkasat/ascii-video-converter/",
       },
     },
     {
-      title: "MelodyArchive",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description: "Howdy is a place for joining communities you care about",
+      title: "AutoLinker",
+      techStack: ["AWS", "Selenium", "Python"],
+      description: "AutoLinker: A Python tool that automates LinkedIn connection requests using Selenium, saving time and boosting networking efficiency.",
       link: {
-        label: "play.google.com",
-        href: "https://howdy.co/",
-      },
+        label: "github.com",
+        href: "https://github.com/harshkasat/AutoLinker",
+      }
+    },
+    {
+      title: "Lesson Plan",
+      techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
+      description: "A FastAPI application that uses an LLM to generate customized, subject-specific lesson plans for students.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/harshkasat/LessonPlan",
+      }
+    },
+    {
+      title: "Tweet Automated",
+      techStack: ["Python", "LLM (Large Language Model)", "Twitter API", "GitHub Actions", "CSV Files"],
+      description: "Automated Twitter bot that generates and posts content using LLM, runs on GitHub Actions, and stores tweet data in CSV files.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/harshkasat/TwitterAutomated",
+      }
     },
   ],
 } as const;
