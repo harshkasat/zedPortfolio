@@ -94,7 +94,8 @@ export const RESUME_DATA = {
         "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
       link: {
         label: "github.com",
-        href: "https://inscribe-ai.vercel.app/",
+        href: "project/inscribeai",
+        // href: "h",
       },
     },
     {
@@ -111,7 +112,8 @@ export const RESUME_DATA = {
         "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/Eudaimonia",
+        href: "project/eudaimonia",
+        // href: "https://github.com/harshkasat/Eudaimonia",
       },
     },
     {
@@ -128,7 +130,8 @@ export const RESUME_DATA = {
       description: "Empowering the visually impaired with advanced camera-based object detection, distance estimation, and facial recognition for greater independence.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/Trininetra",
+        href: "project/trininetra",
+        // href: "https://github.com/harshkasat/Trininetra",
       },
     },
     {
@@ -138,17 +141,19 @@ export const RESUME_DATA = {
         "A Django-based web application for accurate brain tumor, chest X-ray, and melanoma cancer detection using pre-trained machine learning models.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/Diagnose",
+        href: "project/diagnose",
+        // href: "https://github.com/harshkasat/Diagnose",
       },
     },
     {
-      title: "Profile-Cli",
+      title: "Profile-Vector",
       techStack: ["CLI", "Go", "Charm"],
       description:
         "A Go-based CLI tool using the Charm library's tea model for interactive browsing, URL copying, and more.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/ProfileCli-Go",
+        // href: "https://github.com/harshkasat/ProfileCli-Go",
+        href: "project/profile-vector",
       },
     },
     {
@@ -158,7 +163,8 @@ export const RESUME_DATA = {
         "ANPR: Advanced technology for swift vehicle identification and tracking, enhancing law enforcement, traffic management, and public safety.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/ANPR",
+        href: "project/anpr",
+        // href: "https://github.com/harshkasat/ANPR",
       },
     },
     {
@@ -186,7 +192,8 @@ export const RESUME_DATA = {
       description: "This Python project converts video frames into ASCII art and displays them in the terminal using ascii-magic and cv2.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/ascii-video-converter/",
+        href: "project/ascii",
+        // href: "https://github.com/harshkasat/ascii-video-converter/",
       },
     },
     {
@@ -204,7 +211,8 @@ export const RESUME_DATA = {
       description: "A FastAPI application that uses an LLM to generate customized, subject-specific lesson plans for students.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/LessonPlan",
+        href: "project/lesson-plan",
+        // href: "https://github.com/harshkasat/LessonPlan",
       }
     },
     {
@@ -213,7 +221,8 @@ export const RESUME_DATA = {
       description: "Automated Twitter bot that generates and posts content using LLM, runs on GitHub Actions, and stores tweet data in CSV files.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/TwitterAutomated",
+        href: "project/tweet-automate",
+        // href: "https://github.com/harshkasat/TwitterAutomated",
       }
     },
   ],
