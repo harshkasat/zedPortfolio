@@ -42,7 +42,7 @@ export const RESUME_DATA = {
     {
       company: "Kliqstr",
       link: "https://kliqstr.com/",
-      badges: ["Remote"],
+      badges: ["Remote (USA)"],
       title: "Gen Ai Developer (Freelancer)",
       start: "February 2024",
       end: "May 2024",
@@ -52,7 +52,7 @@ export const RESUME_DATA = {
     {
       company: "Occultdiy",
       link: "https://www.occultdiy.com/",
-      badges: ["Remote"],
+      badges: ["Remote (London)"],
       title: "Django Developer (Contract Based)",
       start: "September 2023",
       end: "February 2024",
@@ -62,7 +62,7 @@ export const RESUME_DATA = {
     {
       company: "AMD Telecom S.A.",
       link: "https://presentations.amdtelecom.net/",
-      badges: ["Remote"],
+      badges: ["Remote (Greece)"],
       title: "Software Engineer",
       start: "March 2023",
       end: "June 2024",
