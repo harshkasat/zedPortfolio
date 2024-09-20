@@ -10,11 +10,27 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Github, Code, Cpu, Globe } from "lucide-react"
 
-function Cube() {
+function EnhancedCube() {
+  const meshRef = useRef()
+  
+  useFrame((state, delta) => {
+    meshRef.current.rotation.x += delta * 0.2
+    meshRef.current.rotation.y += delta * 0.3
+  })
+
   return (
-    <mesh>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="hotpink" />
+    <mesh ref={meshRef}>
+      <boxGeometry args={[2.5, 2.5, 2.5]} />
+      <MeshDistortMaterial 
+        color="#ffffff"
+        roughness={0.1}
+        metalness={0.8}
+        bumpScale={0.005}
+        clearcoat={1}
+        clearcoatRoughness={1}
+        radius={1}
+        distort={0.4}
+      />
     </mesh>
   )
 }
@@ -42,14 +58,16 @@ export default function Component() {
                 <TabsContent value="overview" className="mt-6">
                   <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
                   <p className="text-muted-foreground">
-                    CoolProject is a revolutionary application that combines cutting-edge technology with sleek design. 
-                    It's built to solve complex problems while providing an intuitive user experience.
+                  The Diagnose project is a Django web application that uses pre-trained machine 
+                  learning models to classify medical images. It detects brain tumors, 
+                  chest X-ray abnormalities, and melanoma cancer from uploaded images, offering diagnostic support for medical professionals.
                   </p>
                 </TabsContent>
                 <TabsContent value="features" className="mt-6">
                   <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
                   <ul className="space-y-2">
-                    {['Advanced AI algorithms', 'Real-time data processing', 'Cross-platform compatibility', 'Blockchain integration'].map((feature, index) => (
+                    {['Image upload and classification for brain tumors, chest X-rays, and melanoma',
+                      'Pre-trained models using TensorFlow for reliable predictions.'].map((feature, index) => (
                       <motion.li 
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
@@ -65,14 +83,13 @@ export default function Component() {
                 </TabsContent>
                 <TabsContent value="demo" className="mt-6">
                   <h2 className="text-2xl font-semibold mb-4">Project Demo</h2>
-                  <div className="aspect-w-16 aspect-h-9">
+                  <div className="w-full h-0 pb-[56.25%] relative">
                     <iframe 
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                    //   frameBorder="0" 
+                      src="https://youtu.be/jQF_vNaQXwU" 
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                       allowFullScreen
                       title="Project Demo Video"
-                      className="w-full h-full rounded-lg shadow-lg"
+                      className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
                     ></iframe>
                   </div>
                 </TabsContent>
@@ -83,19 +100,20 @@ export default function Component() {
           <Card className="lg:sticky lg:top-8 h-fit">
             <CardContent className="p-6 space-y-6">
               <div className="h-64 w-full">
-                <Canvas>
+                <Canvas camera={{ position: [0, 0, 5] }}>
                   <ambientLight intensity={0.5} />
                   <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                  <OrbitControls />
-                  <Cube />
+                  <pointLight position={[-10, -10, -10]} />
+                  <EnhancedCube />
+                  <OrbitControls enableZoom={false} />
                 </Canvas>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <h3 className="text-xl font-semibold">Tech Stack</h3>
-                <div className="flex space-x-2">
-                  {['React', 'Node.js', 'MongoDB'].map((tech, index) => (
-                    <Button key={index} variant="outline" size="sm">
-                      <Cpu className="mr-2 h-4 w-4" />
+                <div className="flex flex-wrap gap-2">
+                  {['Python', 'Django', 'TensorFlow', 'HTML, CSS'].map((tech, index) => (
+                    <Button key={index} variant="outline" size="sm" className="bg-black text-white border-gray-600">
+                      <Code className="mr-2 h-4 w-4" />
                       {tech}
                     </Button>
                   ))}
@@ -103,14 +121,14 @@ export default function Component() {
               </div>
                 <Button className="w-full">
                   <Github className="mr-2 h-4 w-4" />
-                <a href="https://github.com/harshkasat/InscribeAI.git" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/harshkasat/Diagnose" target="_blank" rel="noopener noreferrer">
                   View on GitHub
                 </a>
                 </Button>
               {/* </a> */}
               <Button variant="outline" className="w-full">
                 <Globe className="mr-2 h-4 w-4" />
-                <a href="https://inscribe-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <a href="" target="_blank" rel="noopener noreferrer">
                 Live Demo
                 </a>
               </Button>
@@ -118,7 +136,7 @@ export default function Component() {
           </Card>
         </div>
 
-        <motion.div style={{ opacity }} className="mt-16">
+        {/* <motion.div style={{ opacity }} className="mt-16">
           <h2 className="text-3xl font-bold mb-8 text-center">Why Choose CoolProject?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -134,7 +152,7 @@ export default function Component() {
               </Card>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   )
