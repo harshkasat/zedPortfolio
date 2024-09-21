@@ -1,28 +1,30 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls, MeshDistortMaterial } from '@react-three/drei'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Github, Code, Cpu, Globe } from "lucide-react"
+import * as THREE from 'three'
 
 function EnhancedCube() {
-  const meshRef = useRef()
-  
+  const meshRef = useRef<THREE.Mesh>(null)
+
   useFrame((state, delta) => {
-    meshRef.current.rotation.x += delta * 0.2
-    meshRef.current.rotation.y += delta * 0.3
+    if (meshRef.current) {
+      meshRef.current.rotation.x += delta * 0.2
+      meshRef.current.rotation.y += delta * 0.3
+    }
   })
 
   return (
     <mesh ref={meshRef}>
-      <boxGeometry args={[2.5, 2.5, 2.5]} />
+      <boxGeometry args={[3, 3, 3]} />
       <MeshDistortMaterial 
-        color="#ffffff"
+        color="white"
         roughness={0.1}
         metalness={0.8}
         bumpScale={0.005}
