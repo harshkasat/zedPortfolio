@@ -8,6 +8,8 @@ import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import Link from 'next/link';
+
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -78,6 +80,10 @@ export default function Page() {
             {/* <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback> */}
           </Avatar>
         </div>
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/80 font-bold font-mono">
+            <Link href="https://profile-vector.vercel.app/" target="_blank">Portfolio Cli</Link>
+          </Button>
+        <div></div>
         <Section>
           <h2 className="text-xl font-bold text-primary">About</h2>
           <p className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
