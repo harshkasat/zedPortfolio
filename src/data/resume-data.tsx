@@ -1,4 +1,5 @@
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/components/icons";
+import { icons } from "lucide-react";
 import { title } from "process";
 
 export const RESUME_DATA = {
@@ -28,6 +29,11 @@ export const RESUME_DATA = {
         url: "https://x.com/harsh__kasat",
         icon: XIcon,
       },
+      {
+        name: 'Resume',
+        url: 'https://drive.google.com/file/d/1px9GCYnJotPAP0v7bGuNeaUJRNB_Aair/view?usp=sharing',
+        icon: ResumeIcon,
+      }
     ],
   },
   education: [
