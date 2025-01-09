@@ -38,7 +38,7 @@ export const RESUME_DATA = {
   },
   education: [
     {
-      school: "Government Engineering College, Dahod",
+      school: "Gujarat Technological University",
       degree: "Bachelor's Degree in Computer Science",
       start: "2021",
       end: "2025",
