@@ -1,6 +1,4 @@
 import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/components/icons";
-import { icons } from "lucide-react";
-import { title } from "process";
 
 export const RESUME_DATA = {
   name: "Harsh Kasat",
@@ -100,8 +98,7 @@ export const RESUME_DATA = {
         "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
       link: {
         label: "github.com",
-        href: "project/inscribeai",
-        // href: "h",
+        href: "https://github.com/harshkasat/InscribeAI",
       },
     },
     {
@@ -118,59 +115,7 @@ export const RESUME_DATA = {
         "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API.",
       link: {
         label: "github.com",
-        href: "project/eudaimonia",
-        // href: "https://github.com/harshkasat/Eudaimonia",
-      },
-    },
-    {
-      title: "Trininetra",
-      techStack: [
-        "Side Project",
-        "JScript",
-        "React",
-        "Vite",
-        "CV",
-        "Async",
-        ""
-      ],
-      description: "Empowering the visually impaired with advanced camera-based object detection, distance estimation, and facial recognition for greater independence.",
-      link: {
-        label: "github.com",
-        href: "project/trininetra",
-        // href: "https://github.com/harshkasat/Trininetra",
-      },
-    },
-    {
-      title: "Diagnose",
-      techStack: ["Side Project", "Django", "Machine learning", "CV"],
-      description:
-        "A Django-based web application for accurate brain tumor, chest X-ray, and melanoma cancer detection using pre-trained machine learning models.",
-      link: {
-        label: "github.com",
-        href: "project/diagnose",
-        // href: "https://github.com/harshkasat/Diagnose",
-      },
-    },
-    {
-      title: "Profile-Vector",
-      techStack: ["CLI", "Go", "Charm"],
-      description:
-        "A Go-based CLI tool using the Charm library's tea model for interactive browsing, URL copying, and more.",
-      link: {
-        label: "github.com",
-        // href: "https://github.com/harshkasat/ProfileCli-Go",
-        href: "project/profile-vector",
-      },
-    },
-    {
-      title: "ANPR",
-      techStack: ["Side Project", "Python", "TensorFlow", "Kaggle"],
-      description:
-        "ANPR: Advanced technology for swift vehicle identification and tracking, enhancing law enforcement, traffic management, and public safety.",
-      link: {
-        label: "github.com",
-        href: "project/anpr",
-        // href: "https://github.com/harshkasat/ANPR",
+        href: "https://github.com/harshkasat/Eudaimonia",
       },
     },
     {
@@ -193,42 +138,12 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "ASCII Video Converter",
-      techStack: ["Side Project", "Cursor", "Python", "ascii-magic", "OpenCV (cv2)"],
-      description: "This Python project converts video frames into ASCII art and displays them in the terminal using ascii-magic and cv2.",
-      link: {
-        label: "github.com",
-        href: "project/ascii",
-        // href: "https://github.com/harshkasat/ascii-video-converter/",
-      },
-    },
-    {
-      title: "AutoLinker",
-      techStack: ["AWS", "Selenium", "Python"],
-      description: "AutoLinker: A Python tool that automates LinkedIn connection requests using Selenium, saving time and boosting networking efficiency.",
-      link: {
-        label: "github.com",
-        href: "https://github.com/harshkasat/AutoLinker",
-      }
-    },
-    {
       title: "Lesson Plan",
       techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
       description: "A FastAPI application that uses an LLM to generate customized, subject-specific lesson plans for students.",
       link: {
         label: "github.com",
-        href: "project/lesson-plan",
-        // href: "https://github.com/harshkasat/LessonPlan",
-      }
-    },
-    {
-      title: "Tweet Automated",
-      techStack: ["Python", "LLM (Large Language Model)", "Twitter API", "GitHub Actions", "CSV Files"],
-      description: "Automated Twitter bot that generates and posts content using LLM, runs on GitHub Actions, and stores tweet data in CSV files.",
-      link: {
-        label: "github.com",
-        href: "project/tweet-automate",
-        // href: "https://github.com/harshkasat/TwitterAutomated",
+        href: "https://github.com/harshkasat/LessonPlan",
       }
     },
   ],
