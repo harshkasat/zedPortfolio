@@ -1,14 +1,15 @@
 import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Harsh Kasat",
-  location: "Surat - Gujarat, India",
+  name: "Harsh",
+  location: "India",
   locationLink: "https://www.google.com/maps/place/Surat",
   about:
     "Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer",
   summary:
-    "Software engineer specializing in crafting cutting-edge generative AI solutions. Proficient in guiding products from concept to completion, adept in team leadership. Experienced in AI, ML, and DL technologies, as well as web development and cloud computing",
-  avatarUrl: "./harsh.jpg",
+    `A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process.
+    Mostly work remote because why not ? more into low-level and tinkering around system `,
+  avatarUrl: "./pfp-image.webp",
   contact: {
     email: "harshkasat01gmail.com",
     social: [
@@ -51,7 +52,10 @@ export const RESUME_DATA = {
       start: "February 2024",
       end: "May 2024",
       description:
-        "Developed multiple LLM agents using Hugging Face, Stable Diffusion, LlamaIndex, and Langchain, and implemented RAG models for context-free applications. Designed APIs with FastAPI for efficient model execution, utilizing Google Cloud Platform for authentication. Key technologies include Transformers and Google Cloud Platform.",
+        `Developed multiple agents using langchain and superagent workflow, Create UGI Model
+        I was one of the founding member. Build backend in fastapi to move fast and rollback fast.
+        Developed Custom Voice modulation voice. Build Facebook Automation for posting content on schedule time
+        Use Redis for Memory Queue, for runng small worker.`,
     },
     {
       company: "Occultdiy",
@@ -61,7 +65,9 @@ export const RESUME_DATA = {
       start: "September 2023",
       end: "February 2024",
       description:
-        "Maintained frontend HTML, CSS, and JavaScript, managed email broadcasts, and handled server deployments. Developed scalable Django backend with Supabase and SQLite, implemented CI/CD pipelines with GitHub Actions, and optimized applications using Docker, load balancers, and Redis.",
+        `Maintained frontend HTML, CSS, and JavaScript, managed email broadcasts, and handled server deployments. 
+        Developed scalable Django backend with Supabase (prod) and SQLite, implemented CI/CD pipelines to push change to servers and email scheduler,
+        and optimized applications using Docker, load balancers, and Redis.`,
     },
     {
       company: "AMD Telecom S.A.",
@@ -70,7 +76,11 @@ export const RESUME_DATA = {
       title: "Software Engineer",
       start: "March 2023",
       end: "June 2024",
-      description:"Implemented real-time car and people counting, and car number plate detection using OpenCV and deep learning. Developed scalable invoice-to-JSON conversion with large language models, created generative fills with Stable Diffusion and ControlNet, and architected microservices for production LLM models, optimizing performance to handle millions of requests."
+      description:` Architected microservices to productionize LLM workflows, 
+      optimized to handle async requests via Redis queues, Docker.
+      Fine-tuned custom invoice parsing models and built scalable invoice-to-JSON pipelines using LLMs. 
+      Integrated NVIDIA RIVA for high-performance STT and TTS and developed image enlargers and inpainting 
+      models using Stable Diffusion + ControlNet for creative workflows. Built fast, iterated in chaos, and scaled things that started as side quests.`
 
     },
   ],
@@ -84,9 +94,27 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
+      title: "AI Launchpad",
+      techStack: ["Side Project", "StackBlitz", "Vite", "TypeScript", "Clerk", "Gemini API"]      ,
+      description: "Prompt, run, edit, and deploy full-stack web and from Scratch using GEMINI API",
+      link: {
+        label: "github.com",
+        href: "https://launchpad.cognitodev.space",
+      },
+    },
+    {
+      title: "Bill Trckr",
+      techStack: ["Side Project", "Nextjs", "Fastapi", "Redis", "SMTP", "Cloudinary", "Clerk"]      ,
+      description: "Seamlessly Convert PDFs to Excel and Get Them Delivered to Your Email",
+      link: {
+        label: "github.com",
+        href: "https://invoice.cognitodev.space/",
+      },
+    },
+    {
       title: "InscribeAI",
       techStack: [
-        "Full Stack Developer",
+        "Side Project",
         "JS",
         "React",
         "Redis",
@@ -104,6 +132,7 @@ export const RESUME_DATA = {
     {
       title: "Eudaimonia",
       techStack: [
+        "Side Project",
         "Fastapi",
         "Notion",
         "Slack",
@@ -129,21 +158,12 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "Hand Gesture Game Controller",
-      techStack: ["Side Project", "Python", "OpenCV", "MediaPipe", "DirectInput (pywin32)"]      ,
-      description: "Hand gesture-based game controller using OpenCV, MediaPipe, and keyboard emulation in Python.",
-      link: {
-        label: "github.com",
-        href: "https://github.com/harshkasat/hand-gesture-game-controller",
-      },
-    },
-    {
       title: "Lesson Plan",
       techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
       description: "A FastAPI application that uses an LLM to generate customized, subject-specific lesson plans for students.",
       link: {
         label: "github.com",
-        href: "https://github.com/harshkasat/LessonPlan",
+        href: "https://sugarlabs.streamlit.app/",
       }
     },
   ],
