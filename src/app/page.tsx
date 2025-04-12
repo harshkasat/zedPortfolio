@@ -155,29 +155,7 @@ export default function Page() {
             })}
           </div>
         </Section>
-        <Section>
-          <h2 className="text-xl font-bold text-primary-foreground">Education</h2>
-          {RESUME_DATA.education.map((education) => {
-            return (
-              <Card key={education.school}>
-                <CardHeader>
-                  <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="font-semibold leading-none text-primary-foreground">
-                      {education.school}
-                    </h3>
-                    <div className="text-sm tabular-nums text-muted-foreground">
-                      {education.start} - {education.end}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="mt-2 text-muted-foreground print:text-[12px]">
-                  {education.degree}
-                </CardContent>
-              </Card>
-            );
-          })}
-        </Section>
-      </section>
+       </section>
     </main>
   );
 }
