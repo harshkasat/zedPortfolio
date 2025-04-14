@@ -98,7 +98,7 @@ export const RESUME_DATA = {
       techStack: ["Side Project", "StackBlitz", "Vite", "TypeScript", "Clerk", "Gemini API"]      ,
       description: "Prompt, run, edit, and deploy full-stack web and from Scratch using GEMINI API",
       link: {
-        label: "github.com",
+        label: "website",
         href: "https://launchpad.cognitodev.space",
       },
     },
@@ -107,7 +107,7 @@ export const RESUME_DATA = {
       techStack: ["Side Project", "Nextjs", "Fastapi", "Redis", "SMTP", "Cloudinary", "Clerk"]      ,
       description: "Seamlessly Convert PDFs to Excel and Get Them Delivered to Your Email",
       link: {
-        label: "github.com",
+        label: "website",
         href: "https://invoice.cognitodev.space/",
       },
     },
@@ -125,7 +125,7 @@ export const RESUME_DATA = {
       description:
         "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
       link: {
-        label: "github.com",
+        label: "website",
         href: "https://github.com/harshkasat/InscribeAI",
       },
     },
@@ -143,7 +143,7 @@ export const RESUME_DATA = {
       description:
         "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API.",
       link: {
-        label: "github.com",
+        label: "website",
         href: "https://github.com/harshkasat/Eudaimonia",
       },
     },
@@ -162,8 +162,17 @@ export const RESUME_DATA = {
       techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
       description: "A FastAPI application that uses an LLM to generate customized, subject-specific lesson plans for students.",
       link: {
-        label: "github.com",
+        label: "website",
         href: "https://sugarlabs.streamlit.app/",
+      }
+    },
+    {
+      title: "MCP Server",
+      techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
+      description: "MCP server for MCP registry and chat applciation",
+      link: {
+        label: "website",
+        href: "https://mcpserver.cognitodev.space/",
       }
     },
   ],
