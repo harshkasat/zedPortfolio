@@ -126,7 +126,7 @@ export const RESUME_DATA = {
         "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
       link: {
         label: "website",
-        href: "https://github.com/harshkasat/InscribeAI",
+        href: "https://inscribeai.cognitodev.space/",
       },
     },
     {
