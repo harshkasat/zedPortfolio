@@ -1,4 +1,9 @@
-import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/components/icons";
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  XIcon,
+  ResumeIcon,
+} from "@/components/icons";
 
 export const RESUME_DATA = {
   name: "Harsh",
@@ -6,8 +11,7 @@ export const RESUME_DATA = {
   locationLink: "https://www.google.com/maps/place/Surat",
   about:
     "Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer",
-  summary:
-    `A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process.
+  summary: `A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process.
     Mostly work remote because why not ? more into low-level and tinkering around system `,
   avatarUrl: "./pfp-image.webp",
   contact: {
@@ -29,10 +33,10 @@ export const RESUME_DATA = {
         icon: XIcon,
       },
       {
-        name: 'Resume',
-        url: 'https://drive.google.com/file/d/1hXeKhl6NDa97uGjL6F-ZW0DyfZn69gSx/view?usp=sharing',
+        name: "Resume",
+        url: "https://drive.google.com/file/d/1hXeKhl6NDa97uGjL6F-ZW0DyfZn69gSx/view?usp=sharing",
         icon: ResumeIcon,
-      }
+      },
     ],
   },
   education: [
@@ -51,8 +55,7 @@ export const RESUME_DATA = {
       title: "Gen Ai Developer (Freelancer)",
       start: "February 2024",
       end: "May 2024",
-      description:
-        `Developed multiple agents using langchain and superagent workflow, Create UGI Model
+      description: `Developed multiple agents using langchain and superagent workflow, Create UGI Model
         I was one of the founding member. Build backend in fastapi to move fast and rollback fast.
         Developed Custom Voice modulation voice. Build Facebook Automation for posting content on schedule time
         Use Redis for Memory Queue, for runng small worker.`,
@@ -64,8 +67,7 @@ export const RESUME_DATA = {
       title: "Django Developer (Contract Based)",
       start: "September 2023",
       end: "February 2024",
-      description:
-        `Maintained frontend HTML, CSS, and JavaScript, managed email broadcasts, and handled server deployments. 
+      description: `Maintained frontend HTML, CSS, and JavaScript, managed email broadcasts, and handled server deployments. 
         Developed scalable Django backend with Supabase (prod) and SQLite, implemented CI/CD pipelines to push change to servers and email scheduler,
         and optimized applications using Docker, load balancers, and Redis.`,
     },
@@ -76,27 +78,41 @@ export const RESUME_DATA = {
       title: "Software Engineer",
       start: "March 2023",
       end: "June 2024",
-      description:` Architected microservices to productionize LLM workflows, 
+      description: ` Architected microservices to productionize LLM workflows, 
       optimized to handle async requests via Redis queues, Docker.
       Fine-tuned custom invoice parsing models and built scalable invoice-to-JSON pipelines using LLMs. 
       Integrated NVIDIA RIVA for high-performance STT and TTS and developed image enlargers and inpainting 
-      models using Stable Diffusion + ControlNet for creative workflows. Built fast, iterated in chaos, and scaled things that started as side quests.`
-
+      models using Stable Diffusion + ControlNet for creative workflows. Built fast, iterated in chaos, and scaled things that started as side quests.`,
     },
   ],
   skills: [
-    "AI/ML/DL/NLP: Pytorch, Transformers, PEFT, Bitsandbytes, Diffusers, HuggingFace Ecosystem, Agents, Replicate" ,
-    "Python Libraries: NLTK, FastAPI, Flask, Django, OpenCV, BeautifulSoup, Selenium, Pandas, Langchain, Llamaindex" ,
-    "Web Framework: React.js, Next.js, Django, Bootstrap, Tailwind",
-    "Cloud: AWS, Azure Machine Learning, AWS Sagemaker, Docker, Learning Terraform",
-    "Database: PostgreSQL, Firebase, Redis, MySQL, Supabase, Pinecone, FAISS, Qdrant, ChromaDb",
-    "Languages: JavaScript, TypeScript, Python, C/C++, SQL, Java, ELK, Kibana, ElasticSearch",
+    "AI/ML/DL/NLP & Agents: Pytorch, Transformers, PEFT",
+    "Bitsandbytes Diffusers, HuggingFace Ecosystem",
+    "Replicate, Langchain, Llamaindex",
+    "Python Libraries: NLTK, OpenCV, BeautifulSoup",
+    "Selenium, Pandas",
+    "Web Frameworks: FastAPI, Flask, Django, React.js",
+    "Next.js, Bootstrap, Tailwind",
+    "Cloud: AWS, Azure Machine Learning, AWS Sagemaker",
+    "Docker, Learning Terraform",
+    "Databases: PostgreSQL, Firebase, Redis, MySQL, Supabase",
+    "Pinecone, FAISS, Qdrant, ChromaDb",
+    "Languages: JavaScript, TypeScript, Python, C/C++, SQL, Java",
+    "Logging & Monitoring: ELK, Kibana, ElasticSearch",
   ],
   projects: [
     {
       title: "AI Launchpad",
-      techStack: ["Side Project", "StackBlitz", "Vite", "TypeScript", "Clerk", "Gemini API"]      ,
-      description: "Prompt, run, edit, and deploy full-stack web and from Scratch using GEMINI API",
+      techStack: [
+        "Side Project",
+        "StackBlitz",
+        "Vite",
+        "TypeScript",
+        "Clerk",
+        "Gemini API",
+      ],
+      description:
+        "Prompt, run, edit, and deploy full-stack web and from Scratch using GEMINI API",
       link: {
         label: "website",
         href: "https://launchpad.cognitodev.space",
@@ -104,8 +120,17 @@ export const RESUME_DATA = {
     },
     {
       title: "Bill Trckr",
-      techStack: ["Side Project", "Nextjs", "Fastapi", "Redis", "SMTP", "Cloudinary", "Clerk"]      ,
-      description: "Seamlessly Convert PDFs to Excel and Get Them Delivered to Your Email",
+      techStack: [
+        "Side Project",
+        "Nextjs",
+        "Fastapi",
+        "Redis",
+        "SMTP",
+        "Cloudinary",
+        "Clerk",
+      ],
+      description:
+        "Seamlessly Convert PDFs to Excel and Get Them Delivered to Your Email",
       link: {
         label: "website",
         href: "https://invoice.cognitodev.space/",
@@ -120,7 +145,7 @@ export const RESUME_DATA = {
         "Redis",
         "Senty",
         "Docker",
-        "FastApi"
+        "FastApi",
       ],
       description:
         "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
@@ -141,7 +166,7 @@ export const RESUME_DATA = {
         "LLM",
       ],
       description:
-        "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API.",
+        "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API and GEMINI API .",
       link: {
         label: "website",
         href: "https://github.com/harshkasat/Eudaimonia",
@@ -149,7 +174,15 @@ export const RESUME_DATA = {
     },
     {
       title: "Occultdiy",
-      techStack: ["Company Project", "HTML", "Celery", "Django", "Supabase", "GitHubAction", "Docker"]  ,
+      techStack: [
+        "Company Project",
+        "HTML",
+        "Celery",
+        "Django",
+        "Supabase",
+        "GitHubAction",
+        "Docker",
+      ],
       description:
         "Numerology, or the science of numbers, is all about numbers, and their vibrational bent aids the numerologists to predict the future of the person.",
       link: {
@@ -159,21 +192,84 @@ export const RESUME_DATA = {
     },
     {
       title: "Lesson Plan",
-      techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
-      description: "A FastAPI application that uses an LLM to generate customized, subject-specific lesson plans for students.",
+      techStack: [
+        "Side Project",
+        "Python",
+        "Fastapi",
+        "Agent",
+        "LLM",
+        "Duck Duck Go",
+      ],
+      description:
+        "A FastAPI application that uses an LLM(GEMINI API) to generate customized, subject-specific lesson plans for students.",
       link: {
         label: "website",
         href: "https://sugarlabs.streamlit.app/",
-      }
+      },
     },
     {
       title: "MCP Server",
-      techStack: ["Side Project", "Python", "Fastapi", "Agent", "LLM", "Duck Duck Go"],
+      techStack: [
+        "Side Project",
+        "Python",
+        "Fastapi",
+        "Agent",
+        "LLM",
+        "Duck Duck Go",
+      ],
       description: "MCP server for MCP registry and chat applciation",
       link: {
         label: "website",
         href: "https://mcpserver.cognitodev.space/",
-      }
+      },
+    },
+    {
+      title: "ManimGenrator",
+      techStack: [
+        "Side Project",
+        "Python",
+        "Fastapi",
+        "Agent",
+        "LLM",
+        "Duck Duck Go",
+      ],
+      description: "MCP server for MCP registry and chat applciation",
+      link: {
+        label: "github",
+        href: "https://github.com/harshkasat/ManimGenrator",
+      },
+    },
+    {
+      title: "Boldify",
+      techStack: [
+        "Side Project",
+        "Python",
+        "Fastapi",
+        "Agent",
+        "LLM",
+        "Duck Duck Go",
+      ],
+      description: "MCP server for MCP registry and chat applciation",
+      link: {
+        label: "website",
+        href: "https://github.com/harshkasat/Boldify",
+      },
+    },
+    {
+      title: "replybuddy",
+      techStack: [
+        "Side Project",
+        "Python",
+        "Fastapi",
+        "Agent",
+        "LLM",
+        "Duck Duck Go",
+      ],
+      description: "MCP server for MCP registry and chat applciation",
+      link: {
+        label: "website",
+        href: "https://github.com/harshkasat/replybuddy",
+      },
     },
   ],
 } as const;

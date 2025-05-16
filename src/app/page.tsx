@@ -10,7 +10,6 @@ import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { ModeToggle } from "@/components/ModeToggle";
 
-
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
   description: RESUME_DATA.summary,
@@ -20,9 +19,14 @@ export default function Page() {
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
       <section className="mx-auto w-full max-w-4xl space-y-8 print:space-y-4">
+        <div className="flex flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
+          <ModeToggle />
+        </div>
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
-            <h1 className="text-2xl font-bold text-primary-foreground">{RESUME_DATA.name}</h1>
+            <h1 className="text-2xl font-bold text-primary-foreground">
+              {RESUME_DATA.name}
+            </h1>
             <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
               {RESUME_DATA.about}
             </p>
@@ -84,14 +88,19 @@ export default function Page() {
           </p>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold text-primary-foreground">Work Experience</h2>
+          <h2 className="text-xl font-bold text-primary-foreground">
+            Work Experience
+          </h2>
           {RESUME_DATA.work.map((work) => {
             return (
               <Card key={work.company}>
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                      <a className="hover:text-primary-foreground" href={work.link}>
+                      <a
+                        className="hover:text-primary-foreground"
+                        href={work.link}
+                      >
                         {work.company}
                       </a>
 
@@ -99,7 +108,7 @@ export default function Page() {
                         {work.badges.map((badge) => (
                           <Badge
                             variant="secondary"
-                            className="align-middle text-xs print:text-[8px] print:leading-tight print:px-1 print:py-0.5 hover:bg-primary-foreground/100"
+                            className="align-middle text-xs hover:bg-primary-foreground/100 print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
                             key={badge}
                           >
                             {badge}
@@ -128,7 +137,10 @@ export default function Page() {
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
               return (
-                <Badge className="bg-secondary text-secondary-foreground print:text-[10px] hover:bg-primary-foreground/100" key={skill}>
+                <Badge
+                  className="bg-secondary text-secondary-foreground hover:bg-primary-foreground/100 print:text-[10px]"
+                  key={skill}
+                >
                   {skill}
                 </Badge>
               );
@@ -140,10 +152,7 @@ export default function Page() {
           <div className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             {RESUME_DATA.projects.map((project) => {
               return (
-                <div
-                  key={project.title}
-                  className="outline-double"
-                >
+                <div key={project.title} className="outline-double">
                   <ProjectCard
                     title={project.title}
                     description={project.description}
@@ -155,7 +164,7 @@ export default function Page() {
             })}
           </div>
         </Section>
-       </section>
+      </section>
     </main>
   );
 }

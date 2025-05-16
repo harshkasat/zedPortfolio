@@ -1,34 +1,104 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
- 
+
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
- 
+
     --popover: 0 0% 0%;
     --popover-foreground: 0 0% 100%;
- 
+
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
- 
+
     --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 100%;
- 
+
     --muted: 0 0% 100%;
     --muted-foreground: 0 0% 0%;
- 
+
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
     --input: 0 0% 20%;
     --ring: 0 0% 80%;
     --radius: 0.5rem;
   }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 100%;
+
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --input: 0 0% 80%;
+    --ring: 0 0% 20%;
+  }
+}
+
+:root {
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    --background 0.4s ease,
+    --foreground 0.4s ease,
+    --card 0.4s ease,
+    --card-foreground 0.4s ease,
+    --muted 0.4s ease,
+    --muted-foreground 0.4s ease;
+}
+.dark {
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    --background 0.4s ease,
+    --foreground 0.4s ease,
+    --card 0.4s ease,
+    --card-foreground 0.4s ease,
+    --muted 0.4s ease,
+    --muted-foreground 0.4s ease;
+}
+
+.theme-transition::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background);
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+html.theme-animating .theme-transition::before {
+  transform: translateX(0);
 }
