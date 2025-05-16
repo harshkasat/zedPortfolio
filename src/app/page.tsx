@@ -48,7 +48,7 @@ export default function Page() {
                   size="icon"
                   asChild
                 >
-                  <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                  <a href={`mailto:${RESUME_DATA.contact.email}`} target="_blank">
                     <MailIcon className="size-4" />
                   </a>
                 </Button>
@@ -61,7 +61,7 @@ export default function Page() {
                   size="icon"
                   asChild
                 >
-                  <a href={social.url}>
+                  <a href={social.url} target="_blank">
                     <social.icon className="size-4" />
                   </a>
                 </Button>
