@@ -4,6 +4,7 @@ import {
   XIcon,
   ResumeIcon,
 } from "@/components/icons";
+import NotionIcon from "@/components/icons/NotionIcon";
 
 export const RESUME_DATA = {
   name: "Harsh",
@@ -36,6 +37,11 @@ export const RESUME_DATA = {
         name: "Resume",
         url: "https://drive.google.com/file/d/1hXeKhl6NDa97uGjL6F-ZW0DyfZn69gSx/view?usp=sharing",
         icon: ResumeIcon,
+      },
+      {
+        name: "Notion",
+        url: "https://tinyurl.com/whoisharsh",
+        icon: NotionIcon,
       },
     ],
   },
