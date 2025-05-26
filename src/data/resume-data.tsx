@@ -116,6 +116,7 @@ export const RESUME_DATA = {
         "TypeScript",
         "Clerk",
         "Gemini API",
+        "AI"
       ],
       description:
         "Prompt, run, edit, and deploy full-stack web and from Scratch using GEMINI API",
@@ -134,6 +135,7 @@ export const RESUME_DATA = {
         "SMTP",
         "Cloudinary",
         "Clerk",
+        "AI"
       ],
       description:
         "Seamlessly Convert PDFs to Excel and Get Them Delivered to Your Email",
@@ -152,6 +154,7 @@ export const RESUME_DATA = {
         "Senty",
         "Docker",
         "FastApi",
+        "AI"
       ],
       description:
         "Seamlessly craft compelling blogs in minutes with AI-powered ease.",
@@ -170,6 +173,7 @@ export const RESUME_DATA = {
         "Facebook API",
         "Docker",
         "LLM",
+        "website"
       ],
       description:
         "Effortlessly generate, publish, and organize blogs using AI with FastAPI, Notion, and the Facebook Graph API and GEMINI API .",

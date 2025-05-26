@@ -1,21 +1,59 @@
+'use client'
+import { useState, useMemo } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CommandMenu } from "@/components/command-menu";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { ModeToggle } from "@/components/ModeToggle";
 
-export const metadata: Metadata = {
-  title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
-  description: RESUME_DATA.summary,
-};
+// export const metadata = {
+//   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
+//   description: RESUME_DATA.summary,
+// };
 
 export default function Page() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Define your project categories here.
+  // You could also derive them dynamically from your project data if needed.
+  const categories = useMemo(() => {
+    const allTech = RESUME_DATA.projects.reduce((acc, project) => {
+      project.techStack.forEach(tech => acc.add(tech.toLowerCase()));
+      return acc;
+    }, new Set());
+    // Add specific categories you want to filter by.
+    // For simplicity, I'm using a predefined list, but you can customize this.
+    const predefinedCategories = ["ALL","AI", "website", "web3", "scraping"];
+    // You could also intersect `allTech` with a list of known categories if techStack contains them.
+    return predefinedCategories;
+  }, []);
+
+
+  const filteredProjects = useMemo(() => {
+    return RESUME_DATA.projects.filter((project) => {
+      const matchesCategory =
+        selectedCategory.toUpperCase() === "ALL" ||
+        project.techStack.some(
+          (tech) => tech.toLowerCase() === selectedCategory.toLowerCase()
+        );
+
+      const matchesSearch =
+        searchTerm === "" ||
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.techStack.some((tech) =>
+          tech.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchTerm]);
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
       <section className="mx-auto w-full max-w-4xl space-y-8 print:space-y-4">
@@ -149,20 +187,68 @@ export default function Page() {
         </Section>
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold text-secondary">Projects</h2>
-          <div className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {RESUME_DATA.projects.map((project) => {
-              return (
-                <div key={project.title} className="outline-double">
-                  <ProjectCard
-                    title={project.title}
-                    description={project.description}
-                    tags={project.techStack}
-                    link={"link" in project ? project.link.href : undefined}
-                  />
-                </div>
-              );
-            })}
+
+          {/* Filter Buttons and Search Box */}
+          <div className="my-4 mx-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 print:hidden">
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 text-sm font-medium rounded-md transition-colors
+                    ${
+                      selectedCategory === category
+                        ? "bg-secondary text-secondary-foreground"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    }`}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Box */}
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search projects..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary w-full sm:w-64"
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  aria-label="Clear search"
+                >
+                  &#x2715; {/* Cross icon */}
+                </button>
+              )}
+            </div>
           </div>
+
+          {filteredProjects.length > 0 ? (
+            <div className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+              {filteredProjects.map((project) => {
+                return (
+                  <div key={project.title} className="outline-double">
+                    <ProjectCard
+                      title={project.title}
+                      description={project.description}
+                      tags={project.techStack}
+                      link={"link" in project ? project.link.href : undefined}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="mx-3 text-gray-600">
+              No projects found matching your criteria.
+            </p>
+          )}
         </Section>
       </section>
     </main>
