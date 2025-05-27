@@ -29,7 +29,7 @@ export default function Page() {
     }, new Set());
     // Add specific categories you want to filter by.
     // For simplicity, I'm using a predefined list, but you can customize this.
-    const predefinedCategories = ["ALL","AI", "website", "web3", "scraping"];
+    const predefinedCategories = ["ALL","AI", "website", "scraping", "web3"];
     // You could also intersect `allTech` with a list of known categories if techStack contains them.
     return predefinedCategories;
   }, []);

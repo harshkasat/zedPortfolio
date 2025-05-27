@@ -17,9 +17,9 @@ interface Props {
 const CATEGORY_TAGS_TO_EXCLUDE = [
   "ai",
   "website",
-  "web3",
   "scraping",
   "side project", // Added "side project" as it was in your sample techStack
+  "web3",
   // Add any other high-level category tags you use for filtering
 ];
 
