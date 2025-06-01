@@ -11,9 +11,6 @@ import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { ModeToggle } from "@/components/ModeToggle";
 import { CategoryButton } from "@/components/category-button";
-import { AnimatePresence, motion } from "framer-motion";
-import { BackgroundLines } from "@/components/ui/background-lines";
-
 
 // export const metadata = {
 //   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -33,7 +30,7 @@ export default function Page() {
     }, new Set());
     // Add specific categories you want to filter by.
     // For simplicity, I'm using a predefined list, but you can customize this.
-    const predefinedCategories = ["ALL","AI", "website", "scraping"];
+    const predefinedCategories = ["ALL","AI", "website", "scraping", "web3"];
     // You could also intersect `allTech` with a list of known categories if techStack contains them.
     return predefinedCategories;
   }, []);
@@ -60,7 +57,6 @@ export default function Page() {
   }, [selectedCategory, searchTerm]);
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-
       <section className="mx-auto w-full max-w-4xl space-y-8 print:space-y-4">
         <div className="flex flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
           <ModeToggle />
@@ -228,27 +224,19 @@ export default function Page() {
           </div>
 
           {filteredProjects.length > 0 ? (
-            <div style={{ position: 'relative' }} className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-              <AnimatePresence initial={false} mode="popLayout">
-                {filteredProjects.map((project, index) => (
-                  <motion.div
-                    key={project.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 30 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    layout
-                  >
+            <div className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+              {filteredProjects.map((project) => {
+                return (
+                  <div key={project.title} className="outline-double">
                     <ProjectCard
                       title={project.title}
                       description={project.description}
                       tags={project.techStack}
                       link={"link" in project ? project.link.href : undefined}
-                      index={index}
                     />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                  </div>
+                );
+              })}
             </div>
           ) : (
             <p className="mx-3 text-gray-600">

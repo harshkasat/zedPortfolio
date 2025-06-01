@@ -61,10 +61,10 @@ export const RESUME_DATA = {
       title: "Gen Ai Developer (Freelancer)",
       start: "February 2024",
       end: "May 2025",
-      description: `Developed multiple agents using langchain and superagent workflow, Create UGI Model
+      description: `Developed multiple agents using langchain and superagent workflow.
         I was one of the founding member. Build backend in fastapi to move fast and rollback fast.
         Developed Custom Voice modulation voice. Build Facebook Automation for posting content on schedule time
-        Use Redis for Memory Queue, for runng small worker.`,
+        Use Redis for `,
     },
     {
       company: "Occultdiy",

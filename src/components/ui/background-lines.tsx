@@ -23,7 +23,7 @@ export const BackgroundLines = ({
 };
 
 const pathVariants = {
-  initial: { strokeDashoffset: 8000, strokeDasharray: "50 8000" },
+  initial: { strokeDashoffset: 800, strokeDasharray: "50 800" },
   animate: {
     strokeDashoffset: 0,
     strokeDasharray: "20 800",
@@ -125,18 +125,18 @@ const SVG = ({
           initial="initial"
           animate="animate"
           transition={{
-            duration: 0.5, // Reduced from 1 to 0.5 for faster animation
+            duration: svgOptions?.duration || 10,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
-            delay: Math.random() * 5, // Reduced max delay from 10 to 5
-            repeatDelay: Math.random() * 5 + 1, // Reduced max repeat delay from 10 to 5
+            delay: Math.floor(Math.random() * 10),
+            repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
           key={`path-first-${idx}`}
         />
       ))}
 
-      {/* duplicate twice more for triple the paths */}
+      {/* duplicate for more paths */}
       {paths.map((path, idx) => (
         <motion.path
           d={path}
@@ -147,12 +147,12 @@ const SVG = ({
           initial="initial"
           animate="animate"
           transition={{
-            duration: 0.5, // Reduced from 1 to 0.5 for faster animation
+            duration:  svgOptions?.duration || 10,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
-            delay: Math.random() * 5, // Reduced max delay from 10 to 5
-            repeatDelay: Math.random() * 5 + 1, // Reduced max repeat delay from 10 to 5
+            delay: Math.floor(Math.random() * 10),
+            repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
           key={`path-second-${idx}`}
         />
