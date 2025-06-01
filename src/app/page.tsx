@@ -10,6 +10,10 @@ import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { ModeToggle } from "@/components/ModeToggle";
+import { CategoryButton } from "@/components/category-button";
+import { AnimatePresence, motion } from "framer-motion";
+import { BackgroundLines } from "@/components/ui/background-lines";
+
 
 // export const metadata = {
 //   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -29,7 +33,7 @@ export default function Page() {
     }, new Set());
     // Add specific categories you want to filter by.
     // For simplicity, I'm using a predefined list, but you can customize this.
-    const predefinedCategories = ["ALL","AI", "website", "scraping", "web3"];
+    const predefinedCategories = ["ALL","AI", "website", "scraping"];
     // You could also intersect `allTech` with a list of known categories if techStack contains them.
     return predefinedCategories;
   }, []);
@@ -56,6 +60,7 @@ export default function Page() {
   }, [selectedCategory, searchTerm]);
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+
       <section className="mx-auto w-full max-w-4xl space-y-8 print:space-y-4">
         <div className="flex flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
           <ModeToggle />
@@ -116,7 +121,6 @@ export default function Page() {
 
           <Avatar className="size-28">
             <AvatarImage alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} />
-            {/* <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback> */}
           </Avatar>
         </div>
         <Section>
@@ -193,18 +197,12 @@ export default function Page() {
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
-                <button
+                <CategoryButton
                   key={category}
+                  category={category}
+                  isSelected={selectedCategory === category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-sm font-medium rounded-md transition-colors
-                    ${
-                      selectedCategory === category
-                        ? "bg-secondary text-secondary-foreground"
-                        : "bg-muted text-muted-foreground hover:bg-muted/80"
-                    }`}
-                >
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </button>
+                />
               ))}
             </div>
 
@@ -230,19 +228,27 @@ export default function Page() {
           </div>
 
           {filteredProjects.length > 0 ? (
-            <div className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-              {filteredProjects.map((project) => {
-                return (
-                  <div key={project.title} className="outline-double">
+            <div style={{ position: 'relative' }} className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+              <AnimatePresence initial={false} mode="popLayout">
+                {filteredProjects.map((project, index) => (
+                  <motion.div
+                    key={project.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                    layout
+                  >
                     <ProjectCard
                       title={project.title}
                       description={project.description}
                       tags={project.techStack}
                       link={"link" in project ? project.link.href : undefined}
+                      index={index}
                     />
-                  </div>
-                );
-              })}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
           ) : (
             <p className="mx-3 text-gray-600">

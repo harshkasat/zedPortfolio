@@ -60,7 +60,7 @@ export const RESUME_DATA = {
       badges: ["Remote (USA)"],
       title: "Gen Ai Developer (Freelancer)",
       start: "February 2024",
-      end: "May 2024",
+      end: "May 2025",
       description: `Developed multiple agents using langchain and superagent workflow, Create UGI Model
         I was one of the founding member. Build backend in fastapi to move fast and rollback fast.
         Developed Custom Voice modulation voice. Build Facebook Automation for posting content on schedule time
