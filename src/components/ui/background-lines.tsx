@@ -147,14 +147,14 @@ const SVG = ({
           initial="initial"
           animate="animate"
           transition={{
-            duration:  svgOptions?.duration || 10,
+            duration: svgOptions?.duration || 10,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
             delay: Math.floor(Math.random() * 10),
             repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
-          key={`path-second-${idx}`}
+          key={`path-first-${idx}`}
         />
       ))}
 
@@ -169,14 +169,14 @@ const SVG = ({
           initial="initial"
           animate="animate"
           transition={{
-            duration: 0.5,
+            duration: svgOptions?.duration || 10,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
-            delay: Math.random() * 5,
-            repeatDelay: Math.random() * 5 + 1,
+            delay: Math.floor(Math.random() * 10),
+            repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
-          key={`path-third-${idx}`}
+          key={`path-first-${idx}`}
         />
       ))}
 
@@ -191,14 +191,14 @@ const SVG = ({
           initial="initial"
           animate="animate"
           transition={{
-            duration: 0.5,
+            duration: svgOptions?.duration || 10,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
-            delay: Math.random() * 5,
-            repeatDelay: Math.random() * 5 + 1,
+            delay: Math.floor(Math.random() * 10),
+            repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
-          key={`path-fourth-${idx}`}
+          key={`path-first-${idx}`}
         />
       ))}
     </motion.svg>

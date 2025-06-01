@@ -10,6 +10,7 @@ import {
 import { Badge } from "./ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { createPortal } from "react-dom";
 import { useEffect, useId, useRef, useState } from "react";
 
 interface Props {
@@ -105,28 +106,42 @@ export function ProjectCard({ title, description, tags, link, index }: Props) {
       </Card>
 
       {/* Portal for Popup Dialog */}
-      <AnimatePresence>
-        {isOpen && (
-          <div className="fixed inset-0 flex items-center justify-center" style={{ zIndex: 999999 }}>
+      {isOpen && createPortal(
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex items-center justify-center"
+            style={{ isolation: 'isolate' }}
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/40"
               onClick={() => setIsOpen(false)}
+              style={{ zIndex: 9998 }}
             />
             <motion.div
               ref={ref}
-              initial={{ opacity: 0, scale: 0.95, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={{ type: "spring", duration: 0.3 }}
-              className="relative w-full max-w-lg p-4"
-              style={{ zIndex: 1000000 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 400,
+                damping: 30
+              }}
+              className="absolute w-full max-w-lg p-4"
+              style={{ zIndex: 9999 }}
             >
               <Card className="relative border border-muted bg-white dark:bg-neutral-900 p-6 shadow-xl rounded-xl">
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(false);
+                  }}
                   className="absolute right-4 top-4 p-1.5 rounded-full bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors"
                 >
                   <CloseIcon />
@@ -164,9 +179,10 @@ export function ProjectCard({ title, description, tags, link, index }: Props) {
                 </div>
               </Card>
             </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+          </motion.div>
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 }
