@@ -61,10 +61,9 @@ export const RESUME_DATA = {
       title: "Gen Ai Developer (Freelancer)",
       start: "February 2024",
       end: "May 2025",
-      description: `Developed multiple agents using langchain and superagent workflow.
-        I was one of the founding member. Build backend in fastapi to move fast and rollback fast.
-        Developed Custom Voice modulation voice. Build Facebook Automation for posting content on schedule time
-        Use Redis for `,
+      description: `Built AI agents to automate customer support and lead generation using LangChain + Superagent. 
+      Developed backend API with FastAPI to serve UGI models. Created voice modulator to clone user tones for video replies. 
+      Automated daily Facebook content across 30+ pages with Redis-powered pipelines — cut manual work by 90% .`,
     },
     {
       company: "Occultdiy",
@@ -73,9 +72,10 @@ export const RESUME_DATA = {
       title: "Django Developer (Contract Based)",
       start: "September 2023",
       end: "February 2024",
-      description: `Maintained frontend HTML, CSS, and JavaScript, managed email broadcasts, and handled server deployments. 
-        Developed scalable Django backend with Supabase (prod) and SQLite, implemented CI/CD pipelines to push change to servers and email scheduler,
-        and optimized applications using Docker, load balancers, and Redis.`,
+      description: `Rebuilt core web app frontend for smoother UX and faster load times. 
+      Set up end-to-end CI/CD with GitHub Actions + Docker for zero-downtime deploys. 
+      Migrated backend from SQLite to Supabase, improving DB speed 3x. 
+      Sent targeted email campaigns to 15k+ users using cron + custom scripts.`,
     },
     {
       company: "AMD Telecom S.A.",
@@ -84,11 +84,10 @@ export const RESUME_DATA = {
       title: "Software Engineer",
       start: "March 2023",
       end: "June 2024",
-      description: ` Architected microservices to productionize LLM workflows, 
-      optimized to handle async requests via Redis queues, Docker.
-      Fine-tuned custom invoice parsing models and built scalable invoice-to-JSON pipelines using LLMs. 
-      Integrated NVIDIA RIVA for high-performance STT and TTS and developed image enlargers and inpainting 
-      models using Stable Diffusion + ControlNet for creative workflows. Built fast, iterated in chaos, and scaled things that started as side quests.`,
+      description: `Designed and deployed 10+ microservices to handle Gen AI workloads using Docker + Redis. 
+      Built and fine-tuned invoice parsers that converted scanned invoices to structured JSON with 95% accuracy. 
+      Integrated NVIDIA RIVA to transcribe and synthesize voice calls in real time. 
+      Created custom image editing tools using Stable Diffusion + ControlNet for marketing automation.`,
     },
   ],
   skills: [

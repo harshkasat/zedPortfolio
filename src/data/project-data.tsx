@@ -4,13 +4,24 @@ export const projects = [
     "techStack": [
       "Side Project",
       "Python",
-      "Flask",
+      "Fastapi",
       "OpenAI API",
+      "LLM",
+      "GEMINI",
+      "Nextjs",
+      "GOOGLE SHEET",
+      "SUPABASE",
       "AI",
       "website",
       "scraping"
     ],
-    "description": "Auto reply tool using OpenAI API for generating responses.",
+    "description": `A FastAPI application that leverages AI to generate emails, messages, and Upwork proposals.
+      Key Features:
+        Email Generation,
+        Message Generation,
+        Upwork Proposal Generation,
+        Email Search,
+        LLM Query`,
     "link": {
       "label": "GitHub",
       "href": "https://github.com/harshkasat/replybuddy"
@@ -21,12 +32,22 @@ export const projects = [
     "techStack": [
       "Side Project",
       "Python",
-      "Django",
-      "Google Calendar API",
+      "FASTAPI",
+      "Extension",
+      "S3 Bucket",
+      "AWS",
+      "Selenium",
+      "LLM",
+      "GEMINI",
+      "GOOGLE MEET",
+      "FFmpeg",
       "AI",
-      "website"
+      "scraping",
     ],
-    "description": "Automated meeting scheduler and assistant integrated with Google Calendar.",
+    "description": `MeetAssistant is a Python-based automation tool that joins Google Meet meetings, 
+    records the session, transcribes the audio, and generates insightful reports based on the transcription. 
+    It leverages Selenium for browser automation, and integrates with AWS S3 for storing recordings and potentially other 
+    services for transcription analysis (LLM integration suggested but not fully implemented in provided code).`,
     "link": {
       "label": "GitHub",
       "href": "https://github.com/harshkasat/MeetAssistant"
@@ -38,10 +59,20 @@ export const projects = [
       "Side Project",
       "Python",
       "Manim",
+      "FASTAPI",
+      "Google Sheets",
+      "YOUTUBE API(v3)",
+      "OpenAI API",
+      "LLM",
+      "GEMINI",
+      "FFmpeg",
+      "soundfile",
       "AI",
-      "website"
+      "scraping",
     ],
-    "description": "Tool to generate mathematical animations using Manim.",
+    "description": `This project automates the creation of educational math animation videos using Manim, 
+    leveraging AI for script generation and video metadata creation. It integrates with Google Sheets for 
+    managing video ideas and uploaded video data.`,
     "link": {
       "label": "GitHub",
       "href": "https://github.com/harshkasat/ManimGenrator"
@@ -58,7 +89,9 @@ export const projects = [
       "website",
       "scraping"
     ],
-    "description": "Agent for registering and managing MCP servers.",
+    "description": `This project implements an MCP server that provides tools for LLMs (Large Language Models) to 
+    interact with external data sources and execute operations to get best best MCP TOOL(Agent) Recommendation. It uses SSE (Server-Sent Events) as the transport layer, 
+    allowing for real-time communication between clients and the server.`,
     "link": {
       "label": "GitHub",
       "href": "https://github.com/harshkasat/MCP-Registry-Agent"
