@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState, useMemo } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
@@ -15,7 +15,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import Component from "@/components/ui/linear-card";
 
-
 // export const metadata = {
 //   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
 //   description: RESUME_DATA.summary,
@@ -29,7 +28,7 @@ export default function Page() {
   // You could also derive them dynamically from your project data if needed.
   const categories = useMemo(() => {
     const allTech = RESUME_DATA.projects.reduce((acc, project) => {
-      project.techStack.forEach(tech => acc.add(tech.toLowerCase()));
+      project.techStack.forEach((tech) => acc.add(tech.toLowerCase()));
       return acc;
     }, new Set());
     // Add specific categories you want to filter by.
@@ -39,13 +38,12 @@ export default function Page() {
     return predefinedCategories;
   }, []);
 
-
   const filteredProjects = useMemo(() => {
     return RESUME_DATA.projects.filter((project) => {
       const matchesCategory =
         selectedCategory.toUpperCase() === "ALL" ||
         project.techStack.some(
-          (tech) => tech.toLowerCase() === selectedCategory.toLowerCase()
+          (tech) => tech.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
       const matchesSearch =
@@ -53,7 +51,7 @@ export default function Page() {
         project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.techStack.some((tech) =>
-          tech.toLowerCase().includes(searchTerm.toLowerCase())
+          tech.toLowerCase().includes(searchTerm.toLowerCase()),
         );
 
       return matchesCategory && matchesSearch;
@@ -92,7 +90,10 @@ export default function Page() {
                     size="icon"
                     asChild
                   >
-                    <a href={`mailto:${RESUME_DATA.contact.email}`} target="_blank">
+                    <a
+                      href={`mailto:${RESUME_DATA.contact.email}`}
+                      target="_blank"
+                    >
                       <MailIcon className="size-4" />
                     </a>
                   </Button>
@@ -114,7 +115,9 @@ export default function Page() {
               <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
                 {RESUME_DATA.contact.email ? (
                   <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                    <span className="underline">{RESUME_DATA.contact.email}</span>
+                    <span className="underline">
+                      {RESUME_DATA.contact.email}
+                    </span>
                   </a>
                 ) : null}
               </div>
@@ -176,7 +179,9 @@ export default function Page() {
             })}
           </Section>
           <Section>
-            <h2 className="text-xl font-bold text-primary-foreground">Skills</h2>
+            <h2 className="text-xl font-bold text-primary-foreground">
+              Skills
+            </h2>
             <div className="flex flex-wrap gap-1">
               {RESUME_DATA.skills.map((skill) => {
                 return (
@@ -197,11 +202,16 @@ export default function Page() {
               <Component
                 items={filteredProjects.map((project, idx) => ({
                   id: idx + 1,
-                  url: { src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                  url: {
+                    src: "project-background-image.png",
+                  },
                   title: project.title,
                   description: project.description,
                   tags: project.techStack || [],
-                  githubUrl: typeof project.link === 'string' ? project.link : (project.link?.href ?? ''),
+                  githubUrl:
+                    typeof project.link === "string"
+                      ? project.link
+                      : project.link?.href ?? "",
                 }))}
               />
             </div>

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, {
   useCallback,
   useContext,
@@ -7,17 +7,17 @@ import React, {
   useMemo,
   useRef,
   useState,
-  forwardRef
-} from 'react';
+  forwardRef,
+} from "react";
 import {
   motion,
   AnimatePresence,
   MotionConfig,
   Transition,
   Variant,
-} from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { XIcon, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
+} from "framer-motion";
+import { cn } from "@/lib/utils";
+import { XIcon, Plus, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface DialogContextType {
   isOpen: boolean;
@@ -31,7 +31,7 @@ const DialogContext = React.createContext<DialogContextType | null>(null);
 function useDialog() {
   const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('useDialog must be used within a DialogProvider');
+    throw new Error("useDialog must be used within a DialogProvider");
   }
   return context;
 }
@@ -48,7 +48,7 @@ function DialogProvider({ children, transition }: DialogProviderProps) {
 
   const contextValue = useMemo(
     () => ({ isOpen, setIsOpen, uniqueId, triggerRef }),
-    [isOpen, uniqueId]
+    [isOpen, uniqueId],
   );
 
   return (
@@ -92,24 +92,24 @@ function DialogTrigger({
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      if (event.key === 'Enter' || event.key === ' ') {
+      if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         setIsOpen(!isOpen);
       }
     },
-    [isOpen, setIsOpen]
+    [isOpen, setIsOpen],
   );
 
   return (
     <motion.div
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
-      className={cn('relative cursor-pointer', className)}
+      className={cn("relative cursor-pointer", className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       style={style}
-      role='button'
-      aria-haspopup='dialog'
+      role="button"
+      aria-haspopup="dialog"
       aria-expanded={isOpen}
       aria-controls={`dialog-content-${uniqueId}`}
     >
@@ -134,10 +134,10 @@ function DialogContent({ children, className, style }: DialogContentProps) {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setIsOpen(false);
       }
-      if (event.key === 'Tab') {
+      if (event.key === "Tab") {
         if (!firstFocusableElement || !lastFocusableElement) return;
 
         if (event.shiftKey) {
@@ -154,23 +154,23 @@ function DialogContent({ children, className, style }: DialogContentProps) {
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [setIsOpen, firstFocusableElement, lastFocusableElement]);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.classList.add("overflow-hidden");
       const focusableElements = containerRef.current?.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
       if (focusableElements && focusableElements.length > 0) {
         setFirstFocusableElement(focusableElements[0] as HTMLElement);
         setLastFocusableElement(
-          focusableElements[focusableElements.length - 1] as HTMLElement
+          focusableElements[focusableElements.length - 1] as HTMLElement,
         );
         (focusableElements[0] as HTMLElement).focus();
       }
@@ -178,7 +178,7 @@ function DialogContent({ children, className, style }: DialogContentProps) {
         containerRef.current.scrollTop = 0;
       }
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
       triggerRef.current?.focus();
     }
   }, [isOpen, triggerRef]);
@@ -188,10 +188,10 @@ function DialogContent({ children, className, style }: DialogContentProps) {
       <motion.div
         ref={containerRef}
         layoutId={`dialog-${uniqueId}`}
-        className={cn('overflow-hidden', className)}
+        className={cn("overflow-hidden", className)}
         style={style}
-        role='dialog'
-        aria-modal='true'
+        role="dialog"
+        aria-modal="true"
         aria-labelledby={`dialog-title-${uniqueId}`}
         aria-describedby={`dialog-description-${uniqueId}`}
       >
@@ -221,18 +221,18 @@ function DialogContainer({ children, className }: DialogContainerProps) {
 
   if (!mounted) return null;
   return (
-    <AnimatePresence initial={false} mode='sync'>
+    <AnimatePresence initial={false} mode="sync">
       {isOpen && (
         <>
           <motion.div
             key={`backdrop-${uniqueId}`}
-            className='fixed inset-0 h-full z-50  w-full bg-white/40 backdrop-blur-sm dark:bg-black/40 '
+            className="fixed inset-0 z-50 h-full  w-full bg-white/40 backdrop-blur-sm dark:bg-black/40 "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
           />
-          <div className={cn(`fixed  inset-0 z-50 w-fit mx-auto`, className)}>
+          <div className={cn(`fixed  inset-0 z-50 mx-auto w-fit`, className)}>
             {children}
           </div>
         </>
@@ -311,9 +311,9 @@ function DialogDescription({
       }
       variants={variants}
       className={className}
-      initial='initial'
-      animate='animate'
-      exit='exit'
+      initial="initial"
+      animate="animate"
+      exit="exit"
       id={`dialog-description-${uniqueId}`}
     >
       {children}
@@ -362,13 +362,13 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
   return (
     <motion.button
       onClick={handleClose}
-      type='button'
-      aria-label='Close dialog'
+      type="button"
+      aria-label="Close dialog"
       key={`dialog-close-${uniqueId}`}
-      className={cn('absolute right-6 top-6', className)}
-      initial='initial'
-      animate='animate'
-      exit='exit'
+      className={cn("absolute right-6 top-6", className)}
+      initial="initial"
+      animate="animate"
+      exit="exit"
       variants={variants}
     >
       {children || <XIcon size={24} />}
@@ -389,100 +389,114 @@ interface ComponentProps {
   items: ComponentItem[];
 }
 
-const Component = forwardRef<HTMLDivElement, ComponentProps>(({ items }, ref) => {
-  const [page, setPage] = useState(0);
-  const pageSize = 9;
-  const pageCount = Math.ceil(items.length / pageSize);
-  const paginatedItems = items.slice(page * pageSize, (page + 1) * pageSize);
+const Component = forwardRef<HTMLDivElement, ComponentProps>(
+  ({ items }, ref) => {
+    const [page, setPage] = useState(0);
+    const pageSize = 9;
+    const pageCount = Math.ceil(items.length / pageSize);
+    const paginatedItems = items.slice(page * pageSize, (page + 1) * pageSize);
 
-  return (
-    <div className="w-full max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {paginatedItems.map((item) => (
-          <div key={item.id} className="flex">
-            <Dialog
-              transition={{
-                type: 'spring',
-                bounce: 0.05,
-                duration: 0.5,
-              }}
-            >
-              <DialogTrigger
-                style={{ borderRadius: '12px' }}
-                className='flex w-full flex-col overflow-hidden border dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950 min-h-[220px] max-h-[260px] cursor-pointer'
+    return (
+      <div className="mx-auto w-full max-w-5xl">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 min-h-[800px]">
+          {paginatedItems.map((item) => (
+            <div key={item.id} className="flex">
+              <Dialog
+                transition={{
+                  type: "spring",
+                  bounce: 0.05,
+                  duration: 0.5,
+                }}
               >
-                <DialogImage
-                  src={item.url.src}
-                  alt=''
-                  className='h-32 w-full object-cover'
-                />
-                <div className='flex flex-col flex-grow justify-between p-3'>
-                  <DialogTitle className='text-zinc-950 text-lg dark:text-zinc-50 truncate'>
-                    {item.title}
-                  </DialogTitle>
-                  <p className='text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2'>{item.description}</p>
-                </div>
-              </DialogTrigger>
-              <DialogContainer className='fixed inset-0 flex items-center justify-center z-50'>
-                <DialogContent
-                  style={{ borderRadius: '20px' }}
-                  className='relative flex h-auto mx-auto flex-col overflow-y-auto border dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950 w-[95vw] max-w-xl min-w-[280px] p-0 items-center justify-center'
+                <DialogTrigger
+                  style={{ borderRadius: "12px" }}
+                  className="flex max-h-[260px] min-h-[220px] w-full cursor-pointer flex-col overflow-hidden border bg-gray-300 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-950"
                 >
-                  <div className='flex flex-col items-center justify-center w-full p-6'>
-                    <DialogImage
-                      src={item.url.src}
-                      alt=''
-                      className='object-contain w-3/4 max-h-56 mx-auto rounded-t-lg mb-4'
-                    />
-                    <DialogTitle className='text-2xl text-zinc-950 dark:text-zinc-50 text-center w-full mb-2'>
-                      {item.githubUrl ? (
-                        <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">{item.title}</a>
-                      ) : (
-                        item.title
-                      )}
+                  <DialogImage
+                    src={item.url.src}
+                    alt=""
+                    className="h-32 w-full object-cover"
+                  />
+                  <div className="flex flex-grow flex-col justify-between p-3">
+                    <DialogTitle className="truncate text-lg text-zinc-950 dark:text-zinc-50">
+                      {item.title}
                     </DialogTitle>
-                    <DialogDescription
-                      disableLayoutAnimation
-                      variants={{
-                        initial: { opacity: 0, scale: 0.8, y: -40 },
-                        animate: { opacity: 1, scale: 1, y: 0 },
-                        exit: { opacity: 0, scale: 0.8, y: -50 },
-                      }}
-                      className='w-full px-2 md:px-6 pb-2'
-                    >
-                      <p className='mt-2 text-base text-zinc-500 dark:text-zinc-500 text-center'>
-                        {item.description}
-                      </p>
-                    </DialogDescription>
+                    <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">
+                      {item.description}
+                    </p>
                   </div>
-                  <DialogClose className='text-zinc-50 dark:bg-gray-900 bg-gray-400 p-2 hover:bg-gray-500 rounded-full dark:hover:bg-gray-800 absolute top-2 right-2' />
-                </DialogContent>
-              </DialogContainer>
-            </Dialog>
-          </div>
-        ))}
+                </DialogTrigger>
+                <DialogContainer className="fixed inset-0 z-50 flex items-center justify-center">
+                  <DialogContent
+                    style={{ borderRadius: "20px" }}
+                    className="relative mx-auto flex h-auto w-[95vw] min-w-[280px] max-w-xl flex-col items-center justify-center overflow-y-auto border bg-gray-300 p-0 hover:bg-gray-200 dark:bg-black dark:hover:bg-gray-950"
+                  >
+                    <div className="flex w-full flex-col items-center justify-center p-6">
+                      <DialogImage
+                        src={item.url.src}
+                        alt=""
+                        className="mx-auto mb-4 max-h-56 w-3/4 rounded-t-lg object-contain"
+                      />
+                      <DialogTitle className="mb-2 w-full text-center text-2xl text-zinc-950 dark:text-zinc-50">
+                        {item.githubUrl ? (
+                          <a
+                            href={item.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline hover:text-blue-600"
+                          >
+                            {item.title}
+                          </a>
+                        ) : (
+                          item.title
+                        )}
+                      </DialogTitle>
+                      <DialogDescription
+                        disableLayoutAnimation
+                        variants={{
+                          initial: { opacity: 0, scale: 0.8, y: -40 },
+                          animate: { opacity: 1, scale: 1, y: 0 },
+                          exit: { opacity: 0, scale: 0.8, y: -50 },
+                        }}
+                        className="w-full px-2 pb-2 md:px-6"
+                      >
+                        <p className="mt-2 text-center text-base text-zinc-500 dark:text-zinc-500">
+                          {item.description}
+                        </p>
+                      </DialogDescription>
+                    </div>
+                    <DialogClose className="absolute right-2 top-2 rounded-full bg-gray-400 p-2 text-zinc-50 hover:bg-gray-500 dark:bg-gray-900 dark:hover:bg-gray-800" />
+                  </DialogContent>
+                </DialogContainer>
+              </Dialog>
+            </div>
+          ))}
+        </div>
+        <div className="pointer-events-auto relative z-[60] mt-8 flex items-center justify-center gap-4">
+          <button
+            className="rounded bg-gray-200 px-4 py-2 text-gray-700 disabled:opacity-50 dark:bg-gray-800 dark:text-gray-200"
+            onClick={() => {
+              console.log("Previous clicked, current page:", page);
+              setPage((p) => Math.max(p - 1, 0));
+            }}
+            disabled={page === 0}
+          >
+            Previous
+          </button>
+          <span className="text-sm text-gray-600 dark:text-gray-300">
+            Page {page + 1} of {pageCount}
+          </span>
+          <button
+            className="rounded bg-gray-200 px-4 py-2 text-gray-700 disabled:opacity-50 dark:bg-gray-800 dark:text-gray-200"
+            onClick={() => setPage((p) => Math.min(p + 1, pageCount - 1))}
+            disabled={page === pageCount - 1}
+          >
+            Next
+          </button>
+        </div>
       </div>
-      <div className="flex justify-center items-center gap-4 mt-8">
-        <button
-          className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 disabled:opacity-50"
-          onClick={() => setPage((p) => Math.max(p - 1, 0))}
-          disabled={page === 0}
-        >
-          Previous
-        </button>
-        <span className="text-sm text-gray-600 dark:text-gray-300">
-          Page {page + 1} of {pageCount}
-        </span>
-        <button
-          className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 disabled:opacity-50"
-          onClick={() => setPage((p) => Math.min(p + 1, pageCount - 1))}
-          disabled={page === pageCount - 1}
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 export default Component;

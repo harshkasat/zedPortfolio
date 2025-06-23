@@ -104,5 +104,5 @@ export const RESUME_DATA = {
     "Languages: JavaScript, Python, Go",
     "Logging & Monitoring: ELK, Kibana, ElasticSearch",
   ],
-  projects: projects
+  projects: projects,
 } as const;

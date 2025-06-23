@@ -9,14 +9,19 @@ interface CategoryButtonProps {
   onClick: () => void;
 }
 
-export function CategoryButton({ category, isSelected, onClick }: CategoryButtonProps) {
+export function CategoryButton({
+  category,
+  isSelected,
+  onClick,
+}: CategoryButtonProps) {
   return (
     <motion.button
-      onClick={onClick}      className={cn(
-        "relative px-4 py-2 text-sm font-medium rounded-md transition-colors border border-input",
+      onClick={onClick}
+      className={cn(
+        "relative rounded-md border border-input px-4 py-2 text-sm font-medium transition-colors",
         isSelected
           ? "bg-secondary text-secondary-foreground"
-          : "bg-background hover:bg-accent hover:text-accent-foreground"
+          : "bg-background hover:bg-accent hover:text-accent-foreground",
       )}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
