@@ -13,6 +13,7 @@ import { ModeToggle } from "@/components/ModeToggle";
 import { CategoryButton } from "@/components/category-button";
 import { AnimatePresence, motion } from "framer-motion";
 import { BackgroundLines } from "@/components/ui/background-lines";
+import Component from "@/components/ui/linear-card";
 
 
 // export const metadata = {
@@ -21,7 +22,7 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 // };
 
 export default function Page() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchTerm, setSearchTerm] = useState("");
 
   // Define your project categories here.
@@ -33,7 +34,7 @@ export default function Page() {
     }, new Set());
     // Add specific categories you want to filter by.
     // For simplicity, I'm using a predefined list, but you can customize this.
-    const predefinedCategories = ["ALL","AI", "website", "scraping"];
+    const predefinedCategories = ["AI", "website", "scraping"];
     // You could also intersect `allTech` with a list of known categories if techStack contains them.
     return predefinedCategories;
   }, []);
@@ -191,75 +192,19 @@ export default function Page() {
           </Section>
           <Section className="print-force-new-page scroll-mb-16">
             <h2 className="text-xl font-bold text-secondary">Projects</h2>
-
-            {/* Filter Buttons and Search Box */}
-            <div className="my-4 mx-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 print:hidden">
-              {/* Filter Buttons */}
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <CategoryButton
-                    key={category}
-                    category={category}
-                    isSelected={selectedCategory === category}
-                    onClick={() => setSelectedCategory(category)}
-                  />
-                ))}
-              </div>
-
-              {/* Search Box */}
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search projects..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary w-full sm:w-64"
-                />
-                {searchTerm && (
-                  <button
-                    onClick={() => setSearchTerm("")}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                    aria-label="Clear search"
-                  >
-                    &#x2715; {/* Cross icon */}
-                  </button>
-                )}
-              </div>
+            {/* New Linear Card Section replacing old project grid and filters */}
+            <div className="my-4">
+              <Component
+                items={filteredProjects.map((project, idx) => ({
+                  id: idx + 1,
+                  url: { src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+                  title: project.title,
+                  description: project.description,
+                  tags: project.techStack || [],
+                  githubUrl: typeof project.link === 'string' ? project.link : (project.link?.href ?? ''),
+                }))}
+              />
             </div>
-
-            {filteredProjects.length > 0 ? (
-              <div className="mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-                <AnimatePresence initial={false}>
-                  {filteredProjects.map((project, index) => (
-                    <motion.div 
-                      key={project.title} 
-                      className="outline-double"
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.9, opacity: 0 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30
-                      }}
-                      layout
-                    >
-                      <ProjectCard
-                        title={project.title}
-                        description={project.description}
-                        tags={project.techStack}
-                        link={"link" in project ? project.link.href : undefined}
-                        index={index}
-                      />
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
-            ) : (
-              <p className="mx-3 text-gray-600">
-                No projects found matching your criteria.
-              </p>
-            )}
           </Section>
         </section>
       </BackgroundLines>
