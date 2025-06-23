@@ -398,7 +398,7 @@ const Component = forwardRef<HTMLDivElement, ComponentProps>(
 
     return (
       <div className="mx-auto w-full max-w-5xl">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 min-h-[800px]">
+        <div className="grid min-h-[800px] grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {paginatedItems.map((item) => (
             <div key={item.id} className="flex">
               <Dialog
@@ -498,5 +498,6 @@ const Component = forwardRef<HTMLDivElement, ComponentProps>(
     );
   },
 );
+Component.displayName = "Component";
 
 export default Component;
