@@ -1,18 +1,14 @@
 "use client";
 import { useState, useMemo } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-// import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { GlobeIcon, MailIcon, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { ModeToggle } from "@/components/ModeToggle";
-import { CategoryButton } from "@/components/category-button";
-import { AnimatePresence, motion } from "framer-motion";
-import { BackgroundLines } from "@/components/ui/background-lines";
 import Component from "@/components/ui/linear-card";
 
 // export const metadata = {
@@ -59,7 +55,7 @@ export default function Page() {
   }, [selectedCategory, searchTerm]);
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      <BackgroundLines>
+      {/* <BackgroundLines> */}
         <section className="mx-auto w-full max-w-4xl space-y-8 print:space-y-4">
           <div className="flex flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
             <ModeToggle />
@@ -197,7 +193,6 @@ export default function Page() {
           </Section>
           <Section className="print-force-new-page scroll-mb-16">
             <h2 className="text-xl font-bold text-secondary">Projects</h2>
-            {/* New Linear Card Section replacing old project grid and filters */}
             <div className="my-4">
               <Component
                 items={filteredProjects.map((project, idx) => ({
@@ -217,7 +212,6 @@ export default function Page() {
             </div>
           </Section>
         </section>
-      </BackgroundLines>
     </main>
   );
 }

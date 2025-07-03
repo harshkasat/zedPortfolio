@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PostHogProvider } from './providers'
 
 import "./globals.css";
 import React from "react";

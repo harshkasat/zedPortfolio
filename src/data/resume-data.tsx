@@ -40,7 +40,7 @@ export const RESUME_DATA = {
       },
       {
         name: "Notion",
-        url: "https://tinyurl.com/whoisharsh",
+        url: "https://www.notion.so/Why-so-curious-1fbfcb5ecf638083bea5f99bc3d272ff",
         icon: NotionIcon,
       },
     ],
