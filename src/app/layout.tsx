@@ -27,18 +27,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <div className="theme-transition bg-background text-foreground duration-1000">
-            {children}
-          </div>
-          <SpeedInsights />
-          <Analytics />
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange={false}
+          >
+            <div className="theme-transition bg-background text-foreground duration-1000">
+              {children}
+            </div>
+            <SpeedInsights />
+            <Analytics />
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
