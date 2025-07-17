@@ -10,7 +10,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Harsh Kasat",
-  description: "Harsh Kasat Portfolio",
+  description: "Harsh Kasat Portfolio | A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process. Mostly work remote because why not ? more into low-level and tinkering around system ",
 };
 
 // If loading a variable font, you don't need to specify the font weight
@@ -51,7 +51,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "url": siteUrl,
-    "name": "Harsh Kasat | Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer",
+    "name": "Harsh Kasat | Django Dev | Machine Learning",
     "description": "A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process. Mostly work remote because why not ? more into low-level and tinkering around system "
   };
   return (
@@ -59,16 +59,27 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Harsh Kasat | Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer</title>
+        <title>Harsh Kasat | Django Dev | Machine Learning </title>
         <meta name="description" content="A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process. Mostly work remote because why not ? more into low-level and tinkering around system " />
-        <meta name="keywords" content="Harsh Kasat, Django, Machine Learning, GenAI, Software Engineer, Freelancer, Python, AI, ML, DL, NLP, FastAPI, Flask, HuggingFace, Langchain, Llamaindex, AWS, Azure, Docker, Terraform, PostgreSQL, Firebase, Redis, MySQL, Supabase, JavaScript, Go, ELK, Kibana, ElasticSearch" />
-        <meta property="og:title" content="Harsh Kasat | Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer" />
+        <meta name="keywords" content="Harsh Kasat, Portfolio, Machine Learning, GENAI developer, Freelancer, Full stack developer, Django, Software Engineer, Python, AI, ML, DL, NLP, FastAPI, Flask, HuggingFace, Langchain, Llamaindex, AWS, Azure, Docker, Terraform, PostgreSQL, Firebase, Redis, MySQL, Supabase, JavaScript, Go, ELK, Kibana, ElasticSearch, Surat, India, Remote Developer, Personal Website, Resume, LinkedIn, GitHub, Notion, Projects, Education, Work Experience, Skills" />
+        <meta name="author" content="Harsh Kasat" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#18181b" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="application-name" content="Harsh Kasat Portfolio" />
+        <meta name="apple-mobile-web-app-title" content="Harsh Kasat Portfolio" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="msapplication-TileColor" content="#18181b" />
+        <meta name="msapplication-TileImage" content="/pfp-image.webp" />
+        <meta property="og:title" content="Harsh Kasat | Django Dev | Machine Learning" />
         <meta property="og:description" content="A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process. Mostly work remote because why not ? more into low-level and tinkering around system " />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:image" content={`${siteUrl}${avatarUrl}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Harsh Kasat | Django Dev | Machine Learning | Freelancer | GenAI Dev | Software Engineer" />
+        <meta name="twitter:title" content="Harsh Kasat | Django Dev | Machine Learning" />
         <meta name="twitter:description" content="A dev with chaotic thoughts and fluppy code, I learn by building product, breaking things is part of process. Mostly work remote because why not ? more into low-level and tinkering around system " />
         <meta name="twitter:image" content={`${siteUrl}${avatarUrl}`} />
         <link rel="canonical" href={siteUrl} />

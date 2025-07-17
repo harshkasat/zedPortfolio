@@ -7,7 +7,7 @@ import {
 import NotionIcon from "@/components/icons/NotionIcon";
 import { projects } from "./project-data";
 export const RESUME_DATA = {
-  name: "Harsh",
+  name: "Harsh Kasat",
   location: "India",
   locationLink: "https://www.google.com/maps/place/Surat",
   about:
