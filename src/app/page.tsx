@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import Head from "next/head";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -53,9 +54,51 @@ export default function Page() {
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchTerm]);
+  const siteUrl = "https://whoisharsh.space";
+  const avatarUrl = RESUME_DATA.avatarUrl.startsWith("./") ? `/pfp-image.webp` : RESUME_DATA.avatarUrl;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": RESUME_DATA.name,
+    "url": siteUrl,
+    "image": `${siteUrl}${avatarUrl}`,
+    "sameAs": RESUME_DATA.contact.social.map(s => s.url),
+    "email": RESUME_DATA.contact.email,
+    "jobTitle": "Software Engineer",
+    "description": RESUME_DATA.summary,
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": RESUME_DATA.location
+    }
+  };
+  const websiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": siteUrl,
+    "name": `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
+    "description": RESUME_DATA.summary
+  };
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      {/* <BackgroundLines> */}
+    <>
+      <Head>
+        <title>{`${RESUME_DATA.name} | ${RESUME_DATA.about}`}</title>
+        <meta name="description" content={RESUME_DATA.summary} />
+        <meta name="keywords" content={RESUME_DATA.skills.join(", ")} />
+        <meta property="og:title" content={`${RESUME_DATA.name} | ${RESUME_DATA.about}`} />
+        <meta property="og:description" content={RESUME_DATA.summary} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:image" content={`${siteUrl}${avatarUrl}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${RESUME_DATA.name} | ${RESUME_DATA.about}`} />
+        <meta name="twitter:description" content={RESUME_DATA.summary} />
+        <meta name="twitter:image" content={`${siteUrl}${avatarUrl}`} />
+        <link rel="canonical" href={siteUrl} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+      </Head>
+      <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+        {/* <BackgroundLines> */}
         <section className="mx-auto w-full max-w-4xl space-y-8 print:space-y-4">
           <div className="flex flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
             <ModeToggle />
@@ -133,24 +176,26 @@ export default function Page() {
             <h2 className="text-xl font-bold text-primary-foreground">
               Work Experience
             </h2>
-            {RESUME_DATA.work.map((work) => {
-              return (
-                <Card key={work.company}>
-                  <CardHeader>
-                    <div className="flex items-center justify-between gap-x-2 text-base">
-                      <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+            {RESUME_DATA.work.map((work) => (
+              <Card
+                key={work.company}
+                className="bg-transparent mb-6 shadow-none border-none"
+              >
+                <CardHeader className="pb-2">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 gap-x-2 text-base">
+                    <div className="flex flex-col gap-y-1">
+                      <h3 className="inline-flex items-center gap-x-2 font-semibold leading-none">
                         <a
                           className="hover:text-primary-foreground"
                           href={work.link}
                         >
                           {work.company}
                         </a>
-
                         <span className="inline-flex gap-x-1">
                           {work.badges.map((badge) => (
                             <Badge
                               variant="secondary"
-                              className="align-middle text-xs hover:bg-primary-foreground/100 print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+                              className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
                               key={badge}
                             >
                               {badge}
@@ -158,21 +203,20 @@ export default function Page() {
                           ))}
                         </span>
                       </h3>
-                      <div className="text-sm tabular-nums text-muted-foreground">
-                        {work.start} - {work.end ?? "Present"}
-                      </div>
+                      <h4 className="font-mono text-sm leading-none text-muted-foreground print:text-[12px]">
+                        {work.title}
+                      </h4>
                     </div>
-
-                    <h4 className="font-mono text-sm leading-none text-muted-foreground print:text-[12px]">
-                      {work.title}
-                    </h4>
-                  </CardHeader>
-                  <CardContent className="mt-2 text-xs text-muted-foreground print:text-[10px]">
-                    {work.description}
-                  </CardContent>
-                </Card>
-              );
-            })}
+                    <div className="text-sm tabular-nums text-muted-foreground text-right min-w-[180px]">
+                      {work.start} - {work.end ?? "Present"}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="mt-2 bg-transparent text-muted-foreground print:text-[10px]">
+                  <p className="whitespace-pre-line leading-relaxed text-[15px]">{work.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </Section>
           <Section>
             <h2 className="text-xl font-bold text-primary-foreground">
@@ -182,7 +226,7 @@ export default function Page() {
               {RESUME_DATA.skills.map((skill) => {
                 return (
                   <Badge
-                    className="bg-secondary text-secondary-foreground hover:bg-primary-foreground/100 print:text-[10px]"
+                    className="bg-secondary text-sm text-secondary-foreground hover:bg-primary-foreground/100 print:text-[10px]"
                     key={skill}
                   >
                     {skill}
@@ -212,6 +256,7 @@ export default function Page() {
             </div>
           </Section>
         </section>
-    </main>
+      </main>
+    </>
   );
 }
